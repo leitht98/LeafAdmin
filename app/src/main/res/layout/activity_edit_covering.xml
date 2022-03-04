@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditCovering">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Edit covering data:"
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/nameLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name:"
+                app:layout_constraintTop_toBottomOf="@+id/title"/>
+
+            <EditText
+                android:id="@+id/enterNewName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                app:layout_constraintTop_toBottomOf="@+id/nameLabel"/>
+
+            <TextView
+                android:id="@+id/uvFenLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="UV Fen:"
+                app:layout_constraintTop_toBottomOf="@+id/enterName"/>
+
+            <EditText
+                android:id="@+id/enterNewUVFen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                app:layout_constraintTop_toBottomOf="@+id/uvFenLabel"/>
+
+            <TextView
+                android:id="@+id/uvRateLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="UV Rate:"
+                app:layout_constraintTop_toBottomOf="@+id/enterUVFen"/>
+
+            <EditText
+                android:id="@+id/enterNewUVRate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                app:layout_constraintTop_toBottomOf="@+id/uvRateLabel"/>
+
+            <Button
+                android:id="@+id/updateButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Update"
+                app:layout_constraintTop_toBottomOf="@+id/enterUVRate"/>
+
+            <Button
+                android:id="@+id/backButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Back"
+                app:layout_constraintTop_toBottomOf="@+id/updateButton"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

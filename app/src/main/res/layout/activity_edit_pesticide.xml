@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditPesticide">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Edit pesticide data:"
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/nameLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name:"
+                app:layout_constraintTop_toBottomOf="@+id/title"/>
+
+            <EditText
+                android:id="@+id/enterNewName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                app:layout_constraintTop_toBottomOf="@+id/nameLabel"/>
+
+            <TextView
+                android:id="@+id/rp1Label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Regression Parameter 1:"
+                app:layout_constraintTop_toBottomOf="@+id/enterNewName"/>
+
+            <EditText
+                android:id="@+id/enterNewRP1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                app:layout_constraintTop_toBottomOf="@+id/rp1Label"/>
+
+            <TextView
+                android:id="@+id/rp2Label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Regression Parameter 2:"
+                app:layout_constraintTop_toBottomOf="@+id/enterNewRP1"/>
+
+            <EditText
+                android:id="@+id/enterNewRP2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                app:layout_constraintTop_toBottomOf="@+id/rp2Label"/>
+
+            <Button
+                android:id="@+id/updateButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Update"
+                app:layout_constraintTop_toBottomOf="@+id/enterNewRP2"/>
+
+            <Button
+                android:id="@+id/backButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Back"
+                app:layout_constraintTop_toBottomOf="@+id/updateButton"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

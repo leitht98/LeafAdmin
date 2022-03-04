@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/thoma/AndroidStudioProjects/LeafAdmin/app/src/main/res/layout/activity_add_covering.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/thoma/AndroidStudioProjects/LeafAdmin/app/src/main/res/layout/activity_add_pesticide.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/thoma/AndroidStudioProjects/LeafAdmin/app/src/main/res/layout/activity_delete_covering.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/thoma/AndroidStudioProjects/LeafAdmin/app/src/main/res/layout/activity_delete_pesticide.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/thoma/AndroidStudioProjects/LeafAdmin/app/src/main/res/layout/activity_edit_covering.xml" value="0.2" />
+        <entry key="..\:/Users/thoma/AndroidStudioProjects/LeafAdmin/app/src/main/res/layout/activity_edit_pesticide.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/thoma/AndroidStudioProjects/LeafAdmin/app/src/main/res/layout/activity_main.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/thoma/AndroidStudioProjects/LeafAdmin/app/src/main/res/layout/activity_view_coverings.xml" value="0.1140625" />
+        <entry key="..\:/Users/thoma/AndroidStudioProjects/LeafAdmin/app/src/main/res/layout/activity_view_pesticides.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/thoma/AndroidStudioProjects/LeafAdmin/app/src/main/res/layout/text_row_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/thoma/AndroidStudioProjects/LeafAdmin/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.124" />
+        <entry key="..\:/Users/thoma/AndroidStudioProjects/LeafAdmin/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.124" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
