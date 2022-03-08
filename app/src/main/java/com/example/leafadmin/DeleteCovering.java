@@ -29,11 +29,8 @@ public class DeleteCovering extends AppCompatActivity {
 
         Intent intent = getIntent();
         inputData = intent.getStringExtra("covering_data");
-        //Toast.makeText(DeleteCovering.this, "Delete me! "+inputData, Toast.LENGTH_SHORT).show();
-        //System.out.println("Delete me! "+inputData);
         String[] tempArrayToFindID = inputData.split("\n");
         coveringID = tempArrayToFindID[1].split(": ")[1];
-        //Toast.makeText(DeleteCovering.this, "Delete me! "+coveringID, Toast.LENGTH_SHORT).show();
         if(!isNetworkAvailable()){
             Toast.makeText(DeleteCovering.this, "Please connect to the internet.", Toast.LENGTH_SHORT).show();
             this.finish();
@@ -52,9 +49,7 @@ public class DeleteCovering extends AppCompatActivity {
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     DeleteCovering.this.startActivity(i);
                 }).addOnFailureListener(e -> Toast.makeText(DeleteCovering.this, "Failed to delete the covering", Toast.LENGTH_SHORT).show());
-            } else{
-                Toast.makeText(DeleteCovering.this, "Please connect to the internet.", Toast.LENGTH_SHORT).show();
-            }
+            } else{Toast.makeText(DeleteCovering.this, "Please connect to the internet.", Toast.LENGTH_SHORT).show();}
         });
 
         noButton.setOnClickListener(v -> this.finish());
@@ -63,11 +58,6 @@ public class DeleteCovering extends AppCompatActivity {
     private boolean isNetworkAvailable() {
         ConnectivityManager manager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = manager.getActiveNetworkInfo();
-
-        boolean isAvailable = false;
-        if (networkInfo != null && networkInfo.isConnected()) {
-            isAvailable = true;
-        }
-        return isAvailable;
+        return networkInfo != null && networkInfo.isConnected();
     }
 }

@@ -1,7 +1,6 @@
 package com.example.leafadmin;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -10,10 +9,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -35,7 +32,6 @@ public class EditPesticide extends AppCompatActivity {
         setContentView(R.layout.activity_edit_pesticide);
 
         db = FirebaseFirestore.getInstance();
-        //ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
         if(isNetworkAvailable()) {
             db.collection("pesticides")
                     .get()
@@ -49,11 +45,7 @@ public class EditPesticide extends AppCompatActivity {
                                 System.out.println(",,,,,,,,,,"+tempDataArray[0].split("=")[1]);
                                 pesticideNames.add(tempDataArray[0].split("=")[1]);
                             }
-                            //String[] tempDataArray = dataString.toString().split("\\}\\{");
-
-                        } else {
-                            Toast.makeText(EditPesticide.this, "Please connect to the internet.", Toast.LENGTH_SHORT).show();
-                        }
+                        } else {Toast.makeText(EditPesticide.this, "Please connect to the internet.", Toast.LENGTH_SHORT).show();}
                     });
         } else{
             Toast.makeText(EditPesticide.this, "Please connect to the internet.", Toast.LENGTH_SHORT).show();
@@ -76,9 +68,6 @@ public class EditPesticide extends AppCompatActivity {
         currentRP1.setText(rp1);
         currentRP2.setText(rp2);
 
-        //didn't work....
-        //pesticideNames.remove(name);
-
         update = findViewById(R.id.updateButton);
         back = findViewById(R.id.backButton);
 
@@ -89,15 +78,9 @@ public class EditPesticide extends AppCompatActivity {
                         new BigDecimal(currentRP1.getText().toString());
                         new BigDecimal(currentRP2.getText().toString());
                         updatePesticide();
-                    } catch (Exception e) {
-                        Toast.makeText(EditPesticide.this, "Regression parameters must be numbers.", Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    Toast.makeText(EditPesticide.this, "That name is already taken, please use a different one.", Toast.LENGTH_SHORT).show();
-                }
-            } else{
-                Toast.makeText(EditPesticide.this, "Please connect to the internet.", Toast.LENGTH_SHORT).show();
-            }
+                    } catch (Exception e) {Toast.makeText(EditPesticide.this, "Regression parameters must be numbers.", Toast.LENGTH_SHORT).show();}
+                } else {Toast.makeText(EditPesticide.this, "That name is already taken, please use a different one.", Toast.LENGTH_SHORT).show();}
+            } else{Toast.makeText(EditPesticide.this, "Please connect to the internet.", Toast.LENGTH_SHORT).show();}
         });
         back.setOnClickListener(v -> this.finish());
     }
@@ -115,17 +98,11 @@ public class EditPesticide extends AppCompatActivity {
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             EditPesticide.this.startActivity(i);
         }).addOnFailureListener(e -> Toast.makeText(EditPesticide.this, "Failed to update the pesticide", Toast.LENGTH_SHORT).show());
-
     }
 
     private boolean isNetworkAvailable() {
         ConnectivityManager manager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = manager.getActiveNetworkInfo();
-
-        boolean isAvailable = false;
-        if (networkInfo != null && networkInfo.isConnected()) {
-            isAvailable = true;
-        }
-        return isAvailable;
+        return networkInfo != null && networkInfo.isConnected();
     }
 }

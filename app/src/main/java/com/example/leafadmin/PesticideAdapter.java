@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,27 +20,23 @@ public class PesticideAdapter extends RecyclerView.Adapter<PesticideAdapter.View
         public ViewHolder(View view) {
             super(view);
             textView = view.findViewById(R.id.textView);
-            //I'm not sure why I added this
-            if(textView.getText().equals("")) {
-                //Add listener to 'Update' button and call function to launch new activity
-                Button editButton = view.findViewById(R.id.editButton);
-                editButton.setOnClickListener(v -> {
-                    String pesticideData = textView.getText().toString();
-                    openEditActivity(pesticideData, view);
-                });
+            //Add listener to 'Update' button and call function to launch new activity
+            Button editButton = view.findViewById(R.id.editButton);
+            editButton.setOnClickListener(v -> {
+                String pesticideData = textView.getText().toString();
+                openEditActivity(pesticideData, view);
+            });
 
-                //Add listener to 'Delete' button and call function to launch new activity
-                Button deleteButton = view.findViewById(R.id.deleteButton);
-                deleteButton.setOnClickListener(v -> {
-                    String pesticideData = textView.getText().toString();
-                    openDeleteActivity(pesticideData, view);
-                });
-            }
+            //Add listener to 'Delete' button and call function to launch new activity
+            Button deleteButton = view.findViewById(R.id.deleteButton);
+            deleteButton.setOnClickListener(v -> {
+                String pesticideData = textView.getText().toString();
+                openDeleteActivity(pesticideData, view);
+            });
         }
 
         public TextView getTextView() {return textView;}
 
-        //Launch UpdateProject activity
         public void openEditActivity(String pesticideData, View view){
             Context context = view.getContext();
             Intent intent = new Intent(context, EditPesticide.class);
@@ -49,7 +44,6 @@ public class PesticideAdapter extends RecyclerView.Adapter<PesticideAdapter.View
             context.startActivity(intent);
         }
 
-        //Launch DeleteProject activity
         public void openDeleteActivity(String pesticideData, View view){
             Context context = view.getContext();
             Intent intent = new Intent(context, DeletePesticide.class);

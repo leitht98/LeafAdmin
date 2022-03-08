@@ -5,61 +5,70 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AddPesticide">
-
-    <TextView
-        android:id="@+id/enterNameMessage"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Enter pesticide name:"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/enterName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Test pesticide"
-        app:layout_constraintTop_toBottomOf="@+id/enterNameMessage"/>
+            <TextView
+                android:id="@+id/enterNameMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter pesticide name:"
+                app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
-        android:id="@+id/enterRP1Message"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Enter Regression Parameter 1:"
-        app:layout_constraintTop_toBottomOf="@id/enterName"/>
+            <EditText
+                android:id="@+id/enterName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Test pesticide"
+                app:layout_constraintTop_toBottomOf="@+id/enterNameMessage"/>
 
-    <EditText
-        android:id="@+id/enterRP1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="6"
-        app:layout_constraintTop_toBottomOf="@+id/enterRP1Message"/>
+            <TextView
+                android:id="@+id/enterRP1Message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter Regression Parameter 1:"
+                app:layout_constraintTop_toBottomOf="@id/enterName"/>
 
-    <TextView
-        android:id="@+id/enterRP2Message"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Enter Regression Parameter 2:"
-        app:layout_constraintTop_toBottomOf="@id/enterRP1"/>
+            <EditText
+                android:id="@+id/enterRP1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="6"
+                app:layout_constraintTop_toBottomOf="@+id/enterRP1Message"/>
 
-    <EditText
-        android:id="@+id/enterRP2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="3000"
-        app:layout_constraintTop_toBottomOf="@+id/enterRP2Message"/>
+            <TextView
+                android:id="@+id/enterRP2Message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter Regression Parameter 2:"
+                app:layout_constraintTop_toBottomOf="@id/enterRP1"/>
 
-    <Button
-        android:id="@+id/submitButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Submit"
-        app:layout_constraintTop_toBottomOf="@id/enterRP2"/>
+            <EditText
+                android:id="@+id/enterRP2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3000"
+                app:layout_constraintTop_toBottomOf="@+id/enterRP2Message"/>
 
-    <Button
-        android:id="@+id/backButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Back"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+            <Button
+                android:id="@+id/submitButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Submit"
+                app:layout_constraintTop_toBottomOf="@id/enterRP2"/>
+
+            <Button
+                android:id="@+id/backButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Back"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

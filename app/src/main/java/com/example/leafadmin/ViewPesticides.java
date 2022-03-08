@@ -4,12 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.Toast;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
@@ -30,8 +27,6 @@ public class ViewPesticides extends AppCompatActivity {
         Intent intent = getIntent();
         dataString = intent.getStringExtra("data_string");
 
-        //Toast.makeText(ViewPesticides.this, dataString, Toast.LENGTH_SHORT).show();
-
         String dataStringTrim = dataString.substring(1,dataString.length()-1);
         String[] coveringsData = dataStringTrim.split("\\}\\{");
         for(String i : coveringsData){
@@ -42,20 +37,13 @@ public class ViewPesticides extends AppCompatActivity {
             String id = pesticideValues[3].split("=")[1];
             boolean newCovering = true;
             for (Pesticide j: pesticidesObjectArray){
-                if(j.getName().equals(name)){
+                if (j.getName().equals(name)) {
                     newCovering = false;
+                    break;
                 }
             }
-            if(newCovering) {
-                pesticidesObjectArray.add(new Pesticide(id, name,rp1,rp2));
-            }
+            if(newCovering) {pesticidesObjectArray.add(new Pesticide(id, name,rp1,rp2));}
         }
-        /*for(Pesticide i : pesticidesObjectArray){
-            Toast.makeText(ViewPesticides.this, "Name: "+i.getName(), Toast.LENGTH_SHORT).show();
-            Toast.makeText(ViewPesticides.this, "RP1: "+i.getRParam1(), Toast.LENGTH_SHORT).show();
-            Toast.makeText(ViewPesticides.this, "RP2: "+i.getRParam2(), Toast.LENGTH_SHORT).show();
-            Toast.makeText(ViewPesticides.this, "ID: "+i.getPesticideID(), Toast.LENGTH_SHORT).show();
-        }*/
         String[] dataInput = new String[pesticidesObjectArray.size()];
         int iterator = 0;
         for(Pesticide i: pesticidesObjectArray){

@@ -1,7 +1,6 @@
 package com.example.leafadmin;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -10,7 +9,6 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class DeletePesticide extends AppCompatActivity {
@@ -30,10 +28,8 @@ public class DeletePesticide extends AppCompatActivity {
 
         Intent intent = getIntent();
         inputData = intent.getStringExtra("pesticide_data");
-        //Toast.makeText(DeletePesticide.this, inputData, Toast.LENGTH_SHORT).show();
         String[] tempArrayToFindID = inputData.split("\n");
         pesticideID = tempArrayToFindID[1].split(": ")[1];
-        //Toast.makeText(DeletePesticide.this,pesticideID, Toast.LENGTH_SHORT).show();
 
         if(!isNetworkAvailable()){
             Toast.makeText(DeletePesticide.this, "Please connect to the internet.", Toast.LENGTH_SHORT).show();
@@ -53,9 +49,7 @@ public class DeletePesticide extends AppCompatActivity {
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     DeletePesticide.this.startActivity(i);
                 }).addOnFailureListener(e -> Toast.makeText(DeletePesticide.this, "Failed to delete the pesticide", Toast.LENGTH_SHORT).show());
-            } else {
-                Toast.makeText(DeletePesticide.this, "Please connect to the internet.", Toast.LENGTH_SHORT).show();
-            }
+            } else {Toast.makeText(DeletePesticide.this, "Please connect to the internet.", Toast.LENGTH_SHORT).show();}
         });
 
         noButton.setOnClickListener(v -> this.finish());
@@ -64,11 +58,6 @@ public class DeletePesticide extends AppCompatActivity {
     private boolean isNetworkAvailable() {
         ConnectivityManager manager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = manager.getActiveNetworkInfo();
-
-        boolean isAvailable = false;
-        if (networkInfo != null && networkInfo.isConnected()) {
-            isAvailable = true;
-        }
-        return isAvailable;
+        return networkInfo != null && networkInfo.isConnected();
     }
 }

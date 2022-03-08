@@ -4,11 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
@@ -23,7 +21,6 @@ public class ViewCoverings extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_coverings);
-        //outputMessageButton = findViewById(R.id.output);
         coveringDataList = findViewById(R.id.dataList);
         back = findViewById(R.id.backButton);
         Intent intent = getIntent();
@@ -40,13 +37,12 @@ public class ViewCoverings extends AppCompatActivity {
             //I'm not sure this works? Like might be useless.
             boolean newCovering = true;
             for (Covering j: coveringsObjectArray){
-                if(j.getCoveringName().equals(name)){
+                if (j.getCoveringName().equals(name)) {
                     newCovering = false;
+                    break;
                 }
             }
-            if(newCovering) {
-                coveringsObjectArray.add(new Covering(id, name,fen,rate));
-            }
+            if(newCovering) {coveringsObjectArray.add(new Covering(id, name,fen,rate));}
         }
         String[] dataInput = new String[coveringsObjectArray.size()];
         int iterator = 0;

@@ -6,60 +6,70 @@
     android:layout_height="match_parent"
     tools:context=".AddCovering">
 
-    <TextView
-        android:id="@+id/enterNameMessage"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Enter covering name:"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/enterName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Test covering"
-        app:layout_constraintTop_toBottomOf="@+id/enterNameMessage"/>
+            <TextView
+                android:id="@+id/enterNameMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter covering name:"
+                app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
-        android:id="@+id/enterUVFenMessage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Enter covering UV Fen:"
-        app:layout_constraintTop_toBottomOf="@id/enterName"/>
+            <EditText
+                android:id="@+id/enterName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Test covering"
+                app:layout_constraintTop_toBottomOf="@+id/enterNameMessage"/>
 
-    <EditText
-        android:id="@+id/enterUVFen"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="0.03"
-        app:layout_constraintTop_toBottomOf="@+id/enterUVFenMessage"/>
+            <TextView
+                android:id="@+id/enterUVFenMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter covering UV Fen:"
+                app:layout_constraintTop_toBottomOf="@id/enterName"/>
 
-    <TextView
-        android:id="@+id/enterUVRateMessage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Enter covering UV Rate:"
-        app:layout_constraintTop_toBottomOf="@id/enterUVFen"/>
+            <EditText
+                android:id="@+id/enterUVFen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0.03"
+                app:layout_constraintTop_toBottomOf="@+id/enterUVFenMessage"/>
 
-    <EditText
-        android:id="@+id/enterUVRate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="30"
-        app:layout_constraintTop_toBottomOf="@+id/enterUVRateMessage"/>
+            <TextView
+                android:id="@+id/enterUVRateMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter covering UV Rate:"
+                app:layout_constraintTop_toBottomOf="@id/enterUVFen"/>
 
-    <Button
-        android:id="@+id/submitButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Submit"
-        app:layout_constraintTop_toBottomOf="@id/enterUVRate"/>
+            <EditText
+                android:id="@+id/enterUVRate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="30"
+                app:layout_constraintTop_toBottomOf="@+id/enterUVRateMessage"/>
 
-    <Button
-        android:id="@+id/backButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Back"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+            <Button
+                android:id="@+id/submitButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Submit"
+                app:layout_constraintTop_toBottomOf="@id/enterUVRate"/>
+
+            <Button
+                android:id="@+id/backButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Back"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

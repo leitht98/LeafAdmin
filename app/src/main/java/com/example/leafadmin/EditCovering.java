@@ -1,7 +1,6 @@
 package com.example.leafadmin;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -10,10 +9,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -36,8 +33,6 @@ public class EditCovering extends AppCompatActivity {
 
         db = FirebaseFirestore.getInstance();
 
-
-        //ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
         if(isNetworkAvailable()) {
             db.collection("coverings")
                     .get()
@@ -46,23 +41,15 @@ public class EditCovering extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : Objects.requireNonNull(task.getResult())) {
                                 dataString.append(document.getData());
-                                //System.out.println(".................."+document.getData());
                                 String[] tempDataArray = document.getData().toString().split(",");
-                                //System.out.println(",,,,,,,,,,"+tempDataArray[2].split("=")[1].replace("}",""));
                                 coveringNames.add(tempDataArray[2].split("=")[1].replace("}",""));
                             }
-                            //String[] tempDataArray = dataString.toString().split("\\}\\{");
-
-                        } else {
-                            Toast.makeText(EditCovering.this, "Please connect to the internet.", Toast.LENGTH_SHORT).show();
-                        }
+                        } else {Toast.makeText(EditCovering.this, "Please connect to the internet.", Toast.LENGTH_SHORT).show();}
                     });
         } else{
             Toast.makeText(EditCovering.this, "Please connect to the internet.", Toast.LENGTH_SHORT).show();
             this.finish();
         }
-
-
 
         currentName = findViewById(R.id.enterNewName);
         currentUVFen = findViewById(R.id.enterNewUVFen);
@@ -70,7 +57,6 @@ public class EditCovering extends AppCompatActivity {
 
         Intent intent = getIntent();
         inputData = intent.getStringExtra("covering_data");
-        //System.out.println("[[[[["+inputData);
         String[] tempPesticideDataArray = inputData.split("\n");
         name = tempPesticideDataArray[0].split(": ")[1];
         coveringID = tempPesticideDataArray[1].split(": ")[1];
@@ -91,15 +77,9 @@ public class EditCovering extends AppCompatActivity {
                         new BigDecimal(currentUVFen.getText().toString());
                         new BigDecimal(currentUVRate.getText().toString());
                         updateCovering();
-                    } catch (Exception e) {
-                        Toast.makeText(EditCovering.this, "UV Fen and UV Rate must be numbers.", Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    Toast.makeText(EditCovering.this, "That name is already taken, please use a different one.", Toast.LENGTH_SHORT).show();
-                }
-            } else{
-                Toast.makeText(EditCovering.this, "Please connect to the internet.", Toast.LENGTH_SHORT).show();
-            }
+                    } catch (Exception e) {Toast.makeText(EditCovering.this, "UV Fen and UV Rate must be numbers.", Toast.LENGTH_SHORT).show();}
+                } else {Toast.makeText(EditCovering.this, "That name is already taken, please use a different one.", Toast.LENGTH_SHORT).show();}
+            } else{Toast.makeText(EditCovering.this, "Please connect to the internet.", Toast.LENGTH_SHORT).show();}
         });
 
         back.setOnClickListener(v -> this.finish());
@@ -118,17 +98,11 @@ public class EditCovering extends AppCompatActivity {
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     EditCovering.this.startActivity(i);
                 }).addOnFailureListener(e -> Toast.makeText(EditCovering.this, "Failed to update the covering", Toast.LENGTH_SHORT).show());
-
     }
 
     private boolean isNetworkAvailable() {
         ConnectivityManager manager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = manager.getActiveNetworkInfo();
-
-        boolean isAvailable = false;
-        if (networkInfo != null && networkInfo.isConnected()) {
-            isAvailable = true;
-        }
-        return isAvailable;
+        return networkInfo != null && networkInfo.isConnected();
     }
 }

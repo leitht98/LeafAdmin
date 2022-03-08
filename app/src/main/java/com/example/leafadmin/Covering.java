@@ -16,16 +16,9 @@ public class Covering {
     }
 
     //Getters, don't need setters yet
-    public String getCoveringID(){return coveringID; }
-
-    public String getCoveringName() {
-        return coveringName;
-    }
-
-    public BigDecimal getUVFen() {
-        return uvFen;
-    }
-
+    public String getCoveringID(){return coveringID;}
+    public String getCoveringName() {return coveringName;}
+    public BigDecimal getUVFen() {return uvFen;}
     public BigDecimal getUVRate() {
         return uvRate;
     }

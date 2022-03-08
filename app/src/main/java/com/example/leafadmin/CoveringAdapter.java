@@ -7,8 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,30 +20,23 @@ public class CoveringAdapter extends RecyclerView.Adapter<CoveringAdapter.ViewHo
         public ViewHolder(View view) {
             super(view);
             textView = view.findViewById(R.id.textView);
-            //I'm not sure why I added this
-            if(textView.getText().equals("")) {
-                //Add listener to 'Update' button and call function to launch new activity
-                Button editButton = view.findViewById(R.id.editButton);
-                editButton.setOnClickListener(v -> {
-                    String coveringData = textView.getText().toString();
-                    openEditActivity(coveringData, view);
-                });
+            //Add listener to 'Update' button and call function to launch new activity
+            Button editButton = view.findViewById(R.id.editButton);
+            editButton.setOnClickListener(v -> {
+                String coveringData = textView.getText().toString();
+                openEditActivity(coveringData, view);
+            });
 
-                //Add listener to 'Delete' button and call function to launch new activity
-                Button deleteButton = view.findViewById(R.id.deleteButton);
-                deleteButton.setOnClickListener(v -> {
-                    String coveringData = textView.getText().toString();
-                    //This will probably be useful in DeleteCovering
-                    //String[] tempArrayToFindID = coveringID.split("\n");
-                    //coveringID = tempArrayToFindID[1].split(":")[1];
-                    openDeleteActivity(coveringData, view);
-                });
-            }
+            //Add listener to 'Delete' button and call function to launch new activity
+            Button deleteButton = view.findViewById(R.id.deleteButton);
+            deleteButton.setOnClickListener(v -> {
+                String coveringData = textView.getText().toString();
+                openDeleteActivity(coveringData, view);
+            });
         }
 
         public TextView getTextView() {return textView;}
 
-        //Launch UpdateProject activity
         public void openEditActivity(String coveringData, View view){
             Context context = view.getContext();
             Intent intent = new Intent(context, EditCovering.class);
@@ -53,7 +44,6 @@ public class CoveringAdapter extends RecyclerView.Adapter<CoveringAdapter.ViewHo
             context.startActivity(intent);
         }
 
-        //Launch DeleteProject activity
         public void openDeleteActivity(String coveringData, View view){
             Context context = view.getContext();
             Intent intent = new Intent(context, DeleteCovering.class);
@@ -64,9 +54,7 @@ public class CoveringAdapter extends RecyclerView.Adapter<CoveringAdapter.ViewHo
 
     //Constructor
     //Ideally this will use an ArrayList<Covering> in the future
-    public CoveringAdapter(String[] dataSet) {
-        localDataSet = dataSet;
-    }
+    public CoveringAdapter(String[] dataSet) {localDataSet = dataSet;}
 
     @NonNull
     @Override
@@ -78,13 +66,9 @@ public class CoveringAdapter extends RecyclerView.Adapter<CoveringAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int position) {
-        if(!localDataSet[position].equals("")) {
-            viewHolder.getTextView().setText(localDataSet[position]);
-        }
+        if(!localDataSet[position].equals("")) {viewHolder.getTextView().setText(localDataSet[position]);}
     }
 
     @Override
-    public int getItemCount() {
-        return localDataSet.length;
-    }
+    public int getItemCount() {return localDataSet.length;}
 }
