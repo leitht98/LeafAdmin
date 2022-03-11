@@ -31,7 +31,7 @@ public class AddCovering extends AppCompatActivity {
         Intent intent = getIntent();
         dataString = intent.getStringExtra("data_string");
         String dataStringTrim = dataString.substring(1,dataString.length()-1);
-        String[] coveringsData = dataStringTrim.split("\\}\\{");
+        String[] coveringsData = dataStringTrim.split(getString(R.string.itemSplit));
         for(String i : coveringsData) {
             String[] coveringValues = i.split(",");
             String name = coveringValues[2].split("=")[1].replace("}", "");
@@ -43,6 +43,11 @@ public class AddCovering extends AppCompatActivity {
         enteredName = findViewById(R.id.enterName);
         enteredUVFen = findViewById(R.id.enterUVFen);
         enteredUVRate = findViewById(R.id.enterUVRate);
+        enteredName.setOnClickListener(v -> enteredName.getText().clear());
+        enteredUVFen.setOnClickListener(v -> enteredUVFen.getText().clear());
+        enteredUVRate.setOnClickListener(v -> enteredUVRate.getText().clear());
+
+
         submit.setOnClickListener(v -> {
             if(isNetworkAvailable()) {
                 if (!coveringNames.contains(enteredName.getText().toString())) {

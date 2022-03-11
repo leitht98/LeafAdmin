@@ -28,7 +28,7 @@ public class ViewPesticides extends AppCompatActivity {
         dataString = intent.getStringExtra("data_string");
 
         String dataStringTrim = dataString.substring(1,dataString.length()-1);
-        String[] coveringsData = dataStringTrim.split("\\}\\{");
+        String[] coveringsData = dataStringTrim.split(getString(R.string.itemSplit));
         for(String i : coveringsData){
             String[] pesticideValues = i.split(",");
             BigDecimal rp1 = new BigDecimal(pesticideValues[1].split("=")[1]);

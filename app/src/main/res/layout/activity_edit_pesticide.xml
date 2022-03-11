@@ -18,7 +18,7 @@
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Edit pesticide data:"
+                android:text="@string/edit_pesticide_data"
                 android:gravity="center"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,7 +27,7 @@
                 android:id="@+id/nameLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Name:"
+                android:text="@string/name"
                 app:layout_constraintTop_toBottomOf="@+id/title"/>
 
             <EditText
@@ -41,7 +41,7 @@
                 android:id="@+id/rp1Label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Regression Parameter 1:"
+                android:text="@string/regression_parameter_1"
                 app:layout_constraintTop_toBottomOf="@+id/enterNewName"/>
 
             <EditText
@@ -55,7 +55,7 @@
                 android:id="@+id/rp2Label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Regression Parameter 2:"
+                android:text="@string/regression_parameter_2"
                 app:layout_constraintTop_toBottomOf="@+id/enterNewRP1"/>
 
             <EditText
@@ -69,14 +69,14 @@
                 android:id="@+id/updateButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Update"
+                android:text="@string/update"
                 app:layout_constraintTop_toBottomOf="@+id/enterNewRP2"/>
 
             <Button
                 android:id="@+id/backButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Back"
+                android:text="@string/back"
                 app:layout_constraintTop_toBottomOf="@+id/updateButton"/>
 
         </LinearLayout>

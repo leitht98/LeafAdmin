@@ -32,7 +32,7 @@ public class AddPesticide extends AppCompatActivity {
         Intent intent = getIntent();
         dataString = intent.getStringExtra("data_string");
         String dataStringTrim = dataString.substring(1,dataString.length()-1);
-        String[] pesticidesData = dataStringTrim.split("\\}\\{");
+        String[] pesticidesData = dataStringTrim.split(getString(R.string.itemSplit));
         for(String i : pesticidesData) {
             String[] coveringValues = i.split(",");
             String name = coveringValues[0].split("=")[1].replace("}", "");
@@ -45,6 +45,10 @@ public class AddPesticide extends AppCompatActivity {
         enteredName = findViewById(R.id.enterName);
         enteredRP1 = findViewById(R.id.enterRP1);
         enteredRP2 = findViewById(R.id.enterRP2);
+        enteredName.setOnClickListener(v -> enteredName.getText().clear());
+        enteredRP1.setOnClickListener(v -> enteredRP1.getText().clear());
+        enteredRP2.setOnClickListener(v -> enteredRP2.getText().clear());
+
         submit.setOnClickListener(v -> {
             if(isNetworkAvailable()) {
                 if (!pesticideNames.contains(enteredName.getText().toString())) {

@@ -21,10 +21,10 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:gravity="right"
+                android:layout_gravity="end"
+                android:gravity="end"
                 android:layout_marginEnd="@dimen/_5sdp"
-                android:text="Delete"
+                android:text="@string/delete"
                 android:backgroundTint="@android:color/holo_red_light"
                 android:id="@+id/deleteButton"
                 app:layout_constraintBottom_toBottomOf="@+id/textView"/>
@@ -33,10 +33,10 @@
                 android:id="@+id/editButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:gravity="right"
+                android:layout_gravity="end"
+                android:gravity="end"
                 android:layout_marginEnd="@dimen/_5sdp"
-                android:text="Edit "
+                android:text="@string/edit"
                 app:layout_constraintBottom_toTopOf="@id/editButton"/>
         </LinearLayout>
     </ScrollView></FrameLayout>

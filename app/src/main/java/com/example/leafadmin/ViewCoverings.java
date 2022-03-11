@@ -26,7 +26,7 @@ public class ViewCoverings extends AppCompatActivity {
         Intent intent = getIntent();
         dataString = intent.getStringExtra("data_string");
         String dataStringTrim = dataString.substring(1,dataString.length()-1);
-        String[] coveringsData = dataStringTrim.split("\\}\\{");
+        String[] coveringsData = dataStringTrim.split(getString(R.string.itemSplit));
         for(String i : coveringsData){
             String[] coveringValues = i.split(",");
             BigDecimal rate = new BigDecimal(coveringValues[0].split("=")[1]);

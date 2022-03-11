@@ -17,7 +17,7 @@
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Edit covering data:"
+                android:text="@string/edit_covering_data"
                 android:gravity="center"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,7 +26,7 @@
                 android:id="@+id/nameLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Name:"
+                android:text="@string/name"
                 app:layout_constraintTop_toBottomOf="@+id/title"/>
 
             <EditText
@@ -40,7 +40,7 @@
                 android:id="@+id/uvFenLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="UV Fen:"
+                android:text="@string/uv_fen"
                 app:layout_constraintTop_toBottomOf="@+id/enterName"/>
 
             <EditText
@@ -54,7 +54,7 @@
                 android:id="@+id/uvRateLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="UV Rate:"
+                android:text="@string/uv_rate"
                 app:layout_constraintTop_toBottomOf="@+id/enterUVFen"/>
 
             <EditText
@@ -68,14 +68,14 @@
                 android:id="@+id/updateButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Update"
+                android:text="@string/update"
                 app:layout_constraintTop_toBottomOf="@+id/enterUVRate"/>
 
             <Button
                 android:id="@+id/backButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Back"
+                android:text="@string/back"
                 app:layout_constraintTop_toBottomOf="@+id/updateButton"/>
 
         </LinearLayout>

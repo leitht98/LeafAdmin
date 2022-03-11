@@ -18,56 +18,56 @@
                 android:id="@+id/enterNameMessage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Enter covering name:"
+                android:text="@string/enter_covering_name"
                 app:layout_constraintTop_toTopOf="parent"/>
 
             <EditText
                 android:id="@+id/enterName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Test covering"
+                android:text="@string/test_covering"
                 app:layout_constraintTop_toBottomOf="@+id/enterNameMessage"/>
 
             <TextView
                 android:id="@+id/enterUVFenMessage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Enter covering UV Fen:"
+                android:text="@string/enter_covering_uv_fen"
                 app:layout_constraintTop_toBottomOf="@id/enterName"/>
 
             <EditText
                 android:id="@+id/enterUVFen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="0.03"
+                android:text="@string/_0_03"
                 app:layout_constraintTop_toBottomOf="@+id/enterUVFenMessage"/>
 
             <TextView
                 android:id="@+id/enterUVRateMessage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Enter covering UV Rate:"
+                android:text="@string/enter_covering_uv_rate"
                 app:layout_constraintTop_toBottomOf="@id/enterUVFen"/>
 
             <EditText
                 android:id="@+id/enterUVRate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="30"
+                android:text="@string/_30"
                 app:layout_constraintTop_toBottomOf="@+id/enterUVRateMessage"/>
 
             <Button
                 android:id="@+id/submitButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Submit"
+                android:text="@string/submit"
                 app:layout_constraintTop_toBottomOf="@id/enterUVRate"/>
 
             <Button
                 android:id="@+id/backButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Back"
+                android:text="@string/back"
                 app:layout_constraintBottom_toBottomOf="parent"/>
         </LinearLayout>
     </ScrollView>

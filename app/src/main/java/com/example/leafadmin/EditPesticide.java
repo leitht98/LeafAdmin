@@ -56,6 +56,10 @@ public class EditPesticide extends AppCompatActivity {
         currentRP1 = findViewById(R.id.enterNewRP1);
         currentRP2 = findViewById(R.id.enterNewRP2);
 
+        currentName.setOnClickListener(v -> currentName.getText().clear());
+        currentRP1.setOnClickListener(v -> currentRP1.getText().clear());
+        currentRP2.setOnClickListener(v -> currentRP2.getText().clear());
+
         Intent intent = getIntent();
         inputData = intent.getStringExtra("pesticide_data");
         String[] tempPesticideDataArray = inputData.split("\n");

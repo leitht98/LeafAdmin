@@ -54,6 +54,9 @@ public class EditCovering extends AppCompatActivity {
         currentName = findViewById(R.id.enterNewName);
         currentUVFen = findViewById(R.id.enterNewUVFen);
         currentUVRate = findViewById(R.id.enterNewUVRate);
+        currentName.setOnClickListener(v -> currentName.getText().clear());
+        currentUVFen.setOnClickListener(v -> currentUVFen.getText().clear());
+        currentUVRate.setOnClickListener(v -> currentUVRate.getText().clear());
 
         Intent intent = getIntent();
         inputData = intent.getStringExtra("covering_data");

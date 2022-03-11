@@ -18,7 +18,7 @@
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Adding to database:"
+                android:text="@string/adding_to_database"
                 android:layout_marginTop="150dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -28,21 +28,21 @@
                 android:id="@+id/addCoveringButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Add a covering"
+                android:text="@string/add_a_covering"
                 app:layout_constraintTop_toBottomOf="@+id/title"/>
 
             <Button
                 android:id="@+id/addPesticideButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Add a pesticide"
+                android:text="@string/add_a_pesticide"
                 app:layout_constraintTop_toBottomOf="@+id/addCoveringButton"/>
 
             <TextView
                 android:id="@+id/middle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Inspecting database:"
+                android:text="@string/inspecting_database"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/addPesticideButton" />
@@ -51,14 +51,14 @@
                 android:id="@+id/viewCoveringsButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="View Coverings"
+                android:text="@string/view_coverings"
                 app:layout_constraintTop_toBottomOf="@+id/middle"/>
 
             <Button
                 android:id="@+id/viewPesticidesButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="View Pesticides"
+                android:text="@string/view_pesticides"
                 app:layout_constraintTop_toBottomOf="@+id/viewCoveringsButton"/>
 
             <com.google.android.gms.common.SignInButton
@@ -71,7 +71,7 @@
                 android:id="@+id/signOutButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sign out"
+                android:text="@string/sign_out"
                 android:backgroundTint="@android:color/holo_red_light"
                 app:layout_constraintTop_toBottomOf="@+id/btnSignIn"/>
         </LinearLayout>
