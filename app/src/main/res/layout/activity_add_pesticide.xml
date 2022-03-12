@@ -25,7 +25,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/test_pesticide"
-                app:layout_constraintTop_toBottomOf="@+id/enterNameMessage"/>
+                app:layout_constraintTop_toBottomOf="@+id/enterNameMessage"
+                android:autofillHints=""
+                android:inputType="text"
+                tools:ignore="LabelFor" />
 
             <TextView
                 android:id="@+id/enterRP1Message"
@@ -39,7 +42,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/_6"
-                app:layout_constraintTop_toBottomOf="@+id/enterRP1Message"/>
+                app:layout_constraintTop_toBottomOf="@+id/enterRP1Message"
+                android:autofillHints=""
+                android:inputType="numberDecimal"
+                tools:ignore="LabelFor" />
 
             <TextView
                 android:id="@+id/enterRP2Message"
@@ -53,7 +59,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/_3000"
-                app:layout_constraintTop_toBottomOf="@+id/enterRP2Message"/>
+                app:layout_constraintTop_toBottomOf="@+id/enterRP2Message"
+                android:autofillHints=""
+                android:inputType="numberDecimal"
+                tools:ignore="LabelFor" />
 
             <Button
                 android:id="@+id/submitButton"

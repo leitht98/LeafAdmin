@@ -35,7 +35,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text=""
-                app:layout_constraintTop_toBottomOf="@+id/nameLabel"/>
+                app:layout_constraintTop_toBottomOf="@+id/nameLabel"
+                android:autofillHints=""
+                android:inputType="text"
+                tools:ignore="LabelFor" />
 
             <TextView
                 android:id="@+id/rp1Label"
@@ -49,7 +52,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text=""
-                app:layout_constraintTop_toBottomOf="@+id/rp1Label"/>
+                app:layout_constraintTop_toBottomOf="@+id/rp1Label"
+                android:autofillHints=""
+                android:inputType="numberDecimal"
+                tools:ignore="LabelFor" />
 
             <TextView
                 android:id="@+id/rp2Label"
@@ -63,7 +69,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text=""
-                app:layout_constraintTop_toBottomOf="@+id/rp2Label"/>
+                app:layout_constraintTop_toBottomOf="@+id/rp2Label"
+                android:autofillHints=""
+                android:inputType="numberDecimal"
+                tools:ignore="LabelFor" />
 
             <Button
                 android:id="@+id/updateButton"

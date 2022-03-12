@@ -3,12 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/thoma/AndroidStudioProjects/LeafAdmin/app/src/main/res/layout/activity_add_covering.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/thoma/AndroidStudioProjects/LeafAdmin/app/src/main/res/layout/activity_add_pesticide.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/thoma/AndroidStudioProjects/LeafAdmin/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.124" />
+        <entry key="..\:/Users/thoma/AndroidStudioProjects/LeafAdmin/app/src/main/res/layout/activity_add_covering.xml" value="0.1" />
+        <entry key="..\:/Users/thoma/AndroidStudioProjects/LeafAdmin/app/src/main/res/layout/activity_add_pesticide.xml" value="0.1" />
         <entry key="..\:/Users/thoma/AndroidStudioProjects/LeafAdmin/app/src/main/res/layout/activity_delete_covering.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/thoma/AndroidStudioProjects/LeafAdmin/app/src/main/res/layout/activity_delete_pesticide.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/thoma/AndroidStudioProjects/LeafAdmin/app/src/main/res/layout/activity_edit_covering.xml" value="0.2" />
-        <entry key="..\:/Users/thoma/AndroidStudioProjects/LeafAdmin/app/src/main/res/layout/activity_edit_pesticide.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/thoma/AndroidStudioProjects/LeafAdmin/app/src/main/res/layout/activity_edit_covering.xml" value="0.1" />
+        <entry key="..\:/Users/thoma/AndroidStudioProjects/LeafAdmin/app/src/main/res/layout/activity_edit_pesticide.xml" value="0.1" />
         <entry key="..\:/Users/thoma/AndroidStudioProjects/LeafAdmin/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/thoma/AndroidStudioProjects/LeafAdmin/app/src/main/res/layout/activity_view_coverings.xml" value="0.1140625" />
         <entry key="..\:/Users/thoma/AndroidStudioProjects/LeafAdmin/app/src/main/res/layout/activity_view_pesticides.xml" value="0.25416666666666665" />

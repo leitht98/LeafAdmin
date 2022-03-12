@@ -31,7 +31,6 @@ public class ViewCoverings extends AppCompatActivity {
             String[] coveringValues = i.split(",");
             BigDecimal rate = new BigDecimal(coveringValues[0].split("=")[1]);
             BigDecimal fen = new BigDecimal(coveringValues[1].split("=")[1]);
-            //Janky and took too long but it works! wooooooooooooooop. It's janky, but to stop them adding duplicates we could do this again.
             String name = coveringValues[2].split("=")[1].replace("}","");
             String id = coveringValues[3].split("=")[1];
             //I'm not sure this works? Like might be useless.
