@@ -10,6 +10,7 @@ import android.widget.Button;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
+//Comments virtually identical to those of ViewCovering
 public class ViewPesticides extends AppCompatActivity {
     String dataString;
     Button back;

@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+//Comments virtually identical to those of EditCovering
 public class EditPesticide extends AppCompatActivity {
     String inputData;
     String name, pesticideID, rp1, rp2;
@@ -33,7 +34,7 @@ public class EditPesticide extends AppCompatActivity {
 
         db = FirebaseFirestore.getInstance();
         if(isNetworkAvailable()) {
-            db.collection("pesticides")
+            db.collection(getString(R.string.pesticides_database_collection))
                     .get()
                     .addOnCompleteListener(task -> {
                         StringBuilder dataString = new StringBuilder();

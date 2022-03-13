@@ -11,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+//Comments virtually identical to those of DeleteCovering
+//I really think this could be one class...
 public class DeletePesticide extends AppCompatActivity {
     Button noButton, yesButton;
     TextView pesticideData;
@@ -41,7 +43,7 @@ public class DeletePesticide extends AppCompatActivity {
         yesButton.setOnClickListener(v -> {
             if(isNetworkAvailable()){
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
-                db.collection("pesticides").
+                db.collection(getString(R.string.pesticides_database_collection)).
                         document(pesticideID)
                         .delete().addOnSuccessListener(aVoid -> {
                     Toast.makeText(DeletePesticide.this, "Pesticide has been deleted.", Toast.LENGTH_SHORT).show();

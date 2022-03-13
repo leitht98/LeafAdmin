@@ -1,7 +1,6 @@
 package com.example.leafadmin;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -10,14 +9,16 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.google.firebase.firestore.FirebaseFirestore;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+//Comments virtually identical to those of AddCovering
+//Really, this should be one activity with slightly different looks
+//I think if you pass a couple extra Strings and do a couple .setTexts(), it can be one class
+//But don't do this yet as they may diverge as you get more data for each thing
 public class AddPesticide extends AppCompatActivity {
     private EditText enteredName, enteredRP1, enteredRP2;
     FirebaseFirestore db;
@@ -69,7 +70,7 @@ public class AddPesticide extends AppCompatActivity {
         pesticideData.put("name",name);
         pesticideData.put("regression parameter 1",rp1.toString());
         pesticideData.put("regression parameter 2",rp2.toString());
-        db.collection("pesticides").
+        db.collection(getString(R.string.pesticides_database_collection)).
                 document().
                 set(pesticideData);
         Toast.makeText(AddPesticide.this, "Pesticide saved.", Toast.LENGTH_SHORT).show();

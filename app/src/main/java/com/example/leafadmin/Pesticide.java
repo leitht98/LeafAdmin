@@ -2,6 +2,7 @@ package com.example.leafadmin;
 
 import java.math.BigDecimal;
 
+//Class to store Pesticide data
 public class Pesticide {
     String pesticideName, pesticideID;
     BigDecimal rParam1, rParam2;
