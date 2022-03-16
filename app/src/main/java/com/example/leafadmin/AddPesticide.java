@@ -20,7 +20,7 @@ import java.util.Map;
 //I think if you pass a couple extra Strings and do a couple .setTexts(), it can be one class
 //But don't do this yet as they may diverge as you get more data for each thing
 public class AddPesticide extends AppCompatActivity {
-    private EditText enteredName, enteredRP1, enteredRP2;
+    private EditText enteredName, enteredRVP, enteredRT, enteredMM;
     FirebaseFirestore db;
     String dataString;
     ArrayList<String> pesticideNames = new ArrayList<>();
@@ -32,31 +32,44 @@ public class AddPesticide extends AppCompatActivity {
 
         Intent intent = getIntent();
         dataString = intent.getStringExtra("data_string");
+        System.out.println("%%%"+dataString);
+        //I don't think I need this??
         String dataStringTrim = dataString.substring(1,dataString.length()-1);
+        //String dataStringTrim = dataString;
         String[] pesticidesData = dataStringTrim.split(getString(R.string.itemSplit));
         for(String i : pesticidesData) {
-            String[] coveringValues = i.split(",");
-            String name = coveringValues[0].split("=")[1].replace("}", "");
-            pesticideNames.add(name);
+            String[] pesticideValues = i.split(",");
+            //String name = coveringValues[0].split("=")[1].replace("}", "");
+            //pesticideNames.add(name);
+            for(String j : pesticideValues){
+                if(j.contains("name")){
+                    String name =j.split("=")[1].replace("}","");
+                    pesticideNames.add(name);
+                    //System.out.println("£££"+name);
+                }
+            }
         }
 
         db = FirebaseFirestore.getInstance();
         Button submit = findViewById(R.id.submitButton);
         Button back = findViewById(R.id.backButton);
         enteredName = findViewById(R.id.enterName);
-        enteredRP1 = findViewById(R.id.enterRP1);
-        enteredRP2 = findViewById(R.id.enterRP2);
+        enteredRVP = findViewById(R.id.enterRVP);
+        enteredRT = findViewById(R.id.enterRT);
+        enteredMM = findViewById(R.id.enterMolarMass);
         enteredName.setOnClickListener(v -> enteredName.getText().clear());
-        enteredRP1.setOnClickListener(v -> enteredRP1.getText().clear());
-        enteredRP2.setOnClickListener(v -> enteredRP2.getText().clear());
+        enteredRVP.setOnClickListener(v -> enteredRVP.getText().clear());
+        enteredRT.setOnClickListener(v -> enteredRT.getText().clear());
+        enteredMM.setOnClickListener(v -> enteredMM.getText().clear());
 
         submit.setOnClickListener(v -> {
             if(isNetworkAvailable()) {
                 if (!pesticideNames.contains(enteredName.getText().toString())) {
                     try {
-                        BigDecimal bdRP1 = new BigDecimal(enteredRP1.getText().toString());
-                        BigDecimal bdRP2 = new BigDecimal(enteredRP2.getText().toString());
-                        savePesticide(enteredName.getText().toString(), bdRP1, bdRP2);
+                        BigDecimal bdRVP = new BigDecimal(enteredRVP.getText().toString());
+                        BigDecimal bdRT = new BigDecimal(enteredRT.getText().toString());
+                        BigDecimal bdMM = new BigDecimal(enteredMM.getText().toString());
+                        savePesticide(enteredName.getText().toString(), bdRVP, bdRT, bdMM);
                         pesticideNames.add(enteredName.getText().toString());
                     } catch (Exception e) {Toast.makeText(AddPesticide.this, "Regression Parameters must be numbers", Toast.LENGTH_SHORT).show();}
                 } else {Toast.makeText(AddPesticide.this, "That name is already taken, please use a different one.", Toast.LENGTH_SHORT).show();}
@@ -65,11 +78,12 @@ public class AddPesticide extends AppCompatActivity {
         back.setOnClickListener(v -> this.finish());
     }
 
-    private void savePesticide(String name, BigDecimal rp1, BigDecimal rp2){
+    private void savePesticide(String name, BigDecimal rvp, BigDecimal rt, BigDecimal mm){
         Map<String, Object> pesticideData = new HashMap<>();
         pesticideData.put("name",name);
-        pesticideData.put("regression parameter 1",rp1.toString());
-        pesticideData.put("regression parameter 2",rp2.toString());
+        pesticideData.put("reference vapour pressure",rvp.toString());
+        pesticideData.put("reference temperature",rt.toString());
+        pesticideData.put("molar mass",mm.toString());
         db.collection(getString(R.string.pesticides_database_collection)).
                 document().
                 set(pesticideData);

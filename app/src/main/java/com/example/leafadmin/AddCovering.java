@@ -37,9 +37,16 @@ public class AddCovering extends AppCompatActivity {
             //Split each covering into its attributes
             String[] coveringValues = i.split(",");
             //Take the name
-            String name = coveringValues[2].split("=")[1].replace("}", "");
+            //String name = coveringValues[2].split("=")[1].replace("}", "");
             //Add it to the list of existing covering names
-            coveringNames.add(name);
+            //coveringNames.add(name);
+            for(String j : coveringValues){
+                if(j.contains("name")){
+                    String name = j.split("=")[1].replace("}","");
+                    coveringNames.add(name);
+                    //System.out.println("£££"+name);
+                }
+            }
         }
         //Initialise database
         db = FirebaseFirestore.getInstance();

@@ -31,7 +31,12 @@ public class DeletePesticide extends AppCompatActivity {
         Intent intent = getIntent();
         inputData = intent.getStringExtra("pesticide_data");
         String[] tempArrayToFindID = inputData.split("\n");
-        pesticideID = tempArrayToFindID[1].split(": ")[1];
+        //pesticideID = tempArrayToFindID[1].split(": ")[1];
+        for(String i : tempArrayToFindID){
+            if(i.contains("ID")){
+                pesticideID = i.split(": ")[1];
+            }
+        }
 
         if(!isNetworkAvailable()){
             Toast.makeText(DeletePesticide.this, "Please connect to the internet.", Toast.LENGTH_SHORT).show();

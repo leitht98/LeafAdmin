@@ -32,7 +32,15 @@ public class DeleteCovering extends AppCompatActivity {
         Intent intent = getIntent();
         inputData = intent.getStringExtra("covering_data");
         String[] tempArrayToFindID = inputData.split("\n");
-        coveringID = tempArrayToFindID[1].split(": ")[1];
+        //System.out.println("£££~~"+tempArrayToFindID[1]);
+        //coveringID = tempArrayToFindID[1].split(": ")[1];
+        //System.out.println("£££~"+coveringID);
+        for(String i : tempArrayToFindID){
+            if(i.contains("ID")){
+                coveringID = i.split(": ")[1];
+                //System.out.println("£££"+coveringID);
+            }
+        }
         //Do not allow the activity to open if there is no network connection
         if(!isNetworkAvailable()){
             //Error message

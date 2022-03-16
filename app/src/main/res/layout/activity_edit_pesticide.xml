@@ -41,35 +41,52 @@
                 tools:ignore="LabelFor" />
 
             <TextView
-                android:id="@+id/rp1Label"
+                android:id="@+id/rvpLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/regression_parameter_1"
+                android:text="@string/reference_vapour_pressure"
                 app:layout_constraintTop_toBottomOf="@+id/enterNewName"/>
 
             <EditText
-                android:id="@+id/enterNewRP1"
+                android:id="@+id/enterNewRVP"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text=""
-                app:layout_constraintTop_toBottomOf="@+id/rp1Label"
+                app:layout_constraintTop_toBottomOf="@+id/rvpLabel"
                 android:autofillHints=""
                 android:inputType="numberDecimal"
                 tools:ignore="LabelFor" />
 
             <TextView
-                android:id="@+id/rp2Label"
+                android:id="@+id/rtLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/regression_parameter_2"
-                app:layout_constraintTop_toBottomOf="@+id/enterNewRP1"/>
+                android:text="@string/reference_temperature"
+                app:layout_constraintTop_toBottomOf="@+id/enterNewRVP"/>
 
             <EditText
-                android:id="@+id/enterNewRP2"
+                android:id="@+id/enterNewRT"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text=""
-                app:layout_constraintTop_toBottomOf="@+id/rp2Label"
+                app:layout_constraintTop_toBottomOf="@+id/rtLabel"
+                android:autofillHints=""
+                android:inputType="numberDecimal"
+                tools:ignore="LabelFor" />
+
+            <TextView
+                android:id="@+id/mmLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/molar_mass"
+                app:layout_constraintTop_toBottomOf="@+id/enterNewRVP"/>
+
+            <EditText
+                android:id="@+id/enterNewMM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                app:layout_constraintTop_toBottomOf="@+id/mmLabel"
                 android:autofillHints=""
                 android:inputType="numberDecimal"
                 tools:ignore="LabelFor" />
@@ -79,7 +96,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/update"
-                app:layout_constraintTop_toBottomOf="@+id/enterNewRP2"/>
+                app:layout_constraintTop_toBottomOf="@+id/enterNewMM"/>
 
             <Button
                 android:id="@+id/backButton"

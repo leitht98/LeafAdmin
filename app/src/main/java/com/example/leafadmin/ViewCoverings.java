@@ -31,12 +31,27 @@ public class ViewCoverings extends AppCompatActivity {
         String[] coveringsData = dataStringTrim.split(getString(R.string.itemSplit));
         //Store Coverings in ArrayList
         for(String i : coveringsData){
-            String[] coveringValues = i.split(",");
-            BigDecimal rate = new BigDecimal(coveringValues[0].split("=")[1]);
-            BigDecimal fen = new BigDecimal(coveringValues[1].split("=")[1]);
-            String name = coveringValues[2].split("=")[1].replace("}","");
-            String id = coveringValues[3].split("=")[1];
+            String[] coveringValues = i.split(", ");
+            //BigDecimal rate = new BigDecimal(coveringValues[0].split("=")[1]);
+            //BigDecimal fen = new BigDecimal(coveringValues[1].split("=")[1]);
+            //String name = coveringValues[2].split("=")[1].replace("}","");
+            //String id = coveringValues[3].split("=")[1];
             //Check that you haven't already added the Covering
+            String name = "error", id = "error";
+            BigDecimal fen = BigDecimal.valueOf(0), rate = BigDecimal.valueOf(0);
+
+            for(String j : coveringValues){
+                //System.out.println("£££"+j.replace("}",""));
+                String[] labelDataPair = j.replace("}","").split("=");
+                switch (labelDataPair[0]){
+                    case "name": name = labelDataPair[1]; break;
+                    case "UV Fen": fen = new BigDecimal(labelDataPair[1]); break;
+                    case "UV Rate": rate = new BigDecimal(labelDataPair[1]); break;
+                    case "id": id = labelDataPair[1]; break;
+                    default: break;
+                }
+            }
+
             boolean newCovering = true;
             for (Covering j: coveringsObjectArray){
                 if (j.getCoveringName().equals(name)) {

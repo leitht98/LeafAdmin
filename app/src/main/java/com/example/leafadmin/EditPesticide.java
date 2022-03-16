@@ -20,9 +20,9 @@ import java.util.Objects;
 //Comments virtually identical to those of EditCovering
 public class EditPesticide extends AppCompatActivity {
     String inputData;
-    String name, pesticideID, rp1, rp2;
+    String name, pesticideID, rvp, rt, mm;
     Button back, update;
-    EditText currentName, currentRP1, currentRP2;
+    EditText currentName, currentRVP, currentRT, currentMM;
     FirebaseFirestore db;
 
     ArrayList<String> pesticideNames = new ArrayList<>();
@@ -41,10 +41,15 @@ public class EditPesticide extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : Objects.requireNonNull(task.getResult())) {
                                 dataString.append(document.getData());
-                                System.out.println(".................."+document.getData());
+                                //System.out.println(".................."+document.getData());
                                 String[] tempDataArray = document.getData().toString().split(",");
-                                System.out.println(",,,,,,,,,,"+tempDataArray[0].split("=")[1]);
-                                pesticideNames.add(tempDataArray[0].split("=")[1]);
+                                //System.out.println(",,,,,,,,,,"+tempDataArray[0].split("=")[1]);
+                                //pesticideNames.add(tempDataArray[0].split("=")[1]);
+                                for(String i : tempDataArray){
+                                    if(i.contains("name")){
+                                        pesticideNames.add(i.split("=")[1]);
+                                    }
+                                }
                             }
                         } else {Toast.makeText(EditPesticide.this, "Please connect to the internet.", Toast.LENGTH_SHORT).show();}
                     });
@@ -54,24 +59,39 @@ public class EditPesticide extends AppCompatActivity {
         }
 
         currentName = findViewById(R.id.enterNewName);
-        currentRP1 = findViewById(R.id.enterNewRP1);
-        currentRP2 = findViewById(R.id.enterNewRP2);
+        currentRVP = findViewById(R.id.enterNewRVP);
+        currentRT = findViewById(R.id.enterNewRT);
+        currentMM = findViewById(R.id.enterNewMM);
 
         currentName.setOnClickListener(v -> currentName.getText().clear());
-        currentRP1.setOnClickListener(v -> currentRP1.getText().clear());
-        currentRP2.setOnClickListener(v -> currentRP2.getText().clear());
+        currentRVP.setOnClickListener(v -> currentRVP.getText().clear());
+        currentRT.setOnClickListener(v -> currentRT.getText().clear());
+        currentMM.setOnClickListener(v -> currentMM.getText().clear());
 
         Intent intent = getIntent();
         inputData = intent.getStringExtra("pesticide_data");
         String[] tempPesticideDataArray = inputData.split("\n");
-        name = tempPesticideDataArray[0].split(": ")[1];
-        pesticideID = tempPesticideDataArray[1].split(": ")[1];
-        rp1 = tempPesticideDataArray[2].split(": ")[1];
-        rp2 = tempPesticideDataArray[3].split(": ")[1];
+        //name = tempPesticideDataArray[0].split(": ")[1];
+        //pesticideID = tempPesticideDataArray[1].split(": ")[1];
+        //rp1 = tempPesticideDataArray[2].split(": ")[1];
+        //rp2 = tempPesticideDataArray[3].split(": ")[1];
+        for (String i : tempPesticideDataArray){
+            String[] labelDataPair = i.split(": ");
+            //System.out.println("$$$"+i);
+            switch (labelDataPair[0]){
+                case "Name": name = labelDataPair[1]; break;
+                case "ID": pesticideID = labelDataPair[1]; break;
+                case "reference vapour pressure": rvp = labelDataPair[1]; break;
+                case "reference temperature": rt = labelDataPair[1]; break;
+                case "molar mass": mm = labelDataPair[1]; break;
+                default: break;
+            }
+        }
 
         currentName.setText(name);
-        currentRP1.setText(rp1);
-        currentRP2.setText(rp2);
+        currentRVP.setText(rvp);
+        currentRT.setText(rt);
+        currentMM.setText(mm);
 
         update = findViewById(R.id.updateButton);
         back = findViewById(R.id.backButton);
@@ -80,8 +100,9 @@ public class EditPesticide extends AppCompatActivity {
             if(isNetworkAvailable()) {
                 if (!pesticideNames.contains(currentName.getText().toString()) || name.equals(currentName.getText().toString())) {
                     try {
-                        new BigDecimal(currentRP1.getText().toString());
-                        new BigDecimal(currentRP2.getText().toString());
+                        new BigDecimal(currentRVP.getText().toString());
+                        new BigDecimal(currentRT.getText().toString());
+                        new BigDecimal(currentMM.getText().toString());
                         updatePesticide();
                     } catch (Exception e) {Toast.makeText(EditPesticide.this, "Regression parameters must be numbers.", Toast.LENGTH_SHORT).show();}
                 } else {Toast.makeText(EditPesticide.this, "That name is already taken, please use a different one.", Toast.LENGTH_SHORT).show();}
@@ -93,8 +114,9 @@ public class EditPesticide extends AppCompatActivity {
     public void updatePesticide(){
         Map<String, Object> pesticideDataMap = new HashMap<>();
         pesticideDataMap.put("name",currentName.getText().toString());
-        pesticideDataMap.put("regression parameter 1",currentRP1.getText().toString());
-        pesticideDataMap.put("regression parameter 2",currentRP2.getText().toString());
+        pesticideDataMap.put("reference vapour pressure", currentRVP.getText().toString());
+        pesticideDataMap.put("reference temperature", currentRT.getText().toString());
+        pesticideDataMap.put("molar mass", currentMM.getText().toString());
         db.collection("pesticides").
                 document(pesticideID).
                 set(pesticideDataMap).addOnSuccessListener(aVoid -> {

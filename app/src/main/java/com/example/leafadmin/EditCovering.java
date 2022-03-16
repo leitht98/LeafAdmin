@@ -46,7 +46,14 @@ public class EditCovering extends AppCompatActivity {
                             for (QueryDocumentSnapshot document : Objects.requireNonNull(task.getResult())) {
                                 dataString.append(document.getData());
                                 String[] tempDataArray = document.getData().toString().split(",");
-                                coveringNames.add(tempDataArray[2].split("=")[1].replace("}",""));
+                                //coveringNames.add(tempDataArray[2].split("=")[1].replace("}",""));
+                                //System.out.println("$$$~"+tempDataArray[2].split("=")[1].replace("}",""));
+                                for(String i : tempDataArray){
+                                    if(i.contains("name")){
+                                        //System.out.println("$$$"+i.split("=")[1].replace("}",""));
+                                        coveringNames.add(i.split("=")[1].replace("}",""));
+                                    }
+                                }
                             }
                         //If you're not connected, send error message
                         } else {Toast.makeText(EditCovering.this, "Please connect to the internet.", Toast.LENGTH_SHORT).show();}
@@ -69,12 +76,23 @@ public class EditCovering extends AppCompatActivity {
         //Get data passed to activity as intent
         Intent intent = getIntent();
         inputData = intent.getStringExtra("covering_data");
-        String[] tempPesticideDataArray = inputData.split("\n");
+        String[] tempCoveringDataArray = inputData.split("\n");
         //Store data as Strings
-        name = tempPesticideDataArray[0].split(": ")[1];
-        coveringID = tempPesticideDataArray[1].split(": ")[1];
-        uvFen = tempPesticideDataArray[2].split(": ")[1];
-        uvRate = tempPesticideDataArray[3].split(": ")[1];
+        //name = tempCoveringDataArray[0].split(": ")[1];
+        //coveringID = tempCoveringDataArray[1].split(": ")[1];
+        //uvFen = tempCoveringDataArray[2].split(": ")[1];
+        //uvRate = tempCoveringDataArray[3].split(": ")[1];
+        for(String i : tempCoveringDataArray){
+            //System.out.println("£££~"+i);
+            String[] labelDataPair = i.split(": ");
+            switch (labelDataPair[0]){
+                case "Name": name = labelDataPair[1]; break;
+                case "UV Fen": uvFen = labelDataPair[1]; break;
+                case "UV Rate": uvRate = labelDataPair[1]; break;
+                case "ID": coveringID = labelDataPair[1]; break;
+                default: break;
+            }
+        }
 
         //Fill EditTexts with the existing name and values
         currentName.setText(name);
